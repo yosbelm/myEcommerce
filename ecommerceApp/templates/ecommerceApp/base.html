@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Minimalista</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+        }
+        .nav a img{
+            height: 30px;
+            
+        }
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Tienda Ecommerce</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="/">Productos</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="{% url 'cart' %}"><img src="{%  static 'ecommerceApp/Images/carrito-de-compras.png' %}"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Tienda Minimalista. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,167 @@
+{% extends 'ecommerceApp/base.html' %}
+
+{% block content %}
+<style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+        }
+
+        .products, .cart {
+            padding: 40px 0;
+        }
+
+        .products h2, .cart h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .product-item {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e6e6e6;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-item h3 {
+            margin: 20px 0 10px;
+            font-size: 24px;
+        }
+
+        .product-item p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        
+
+        .product-item form {
+            margin-top: 10px;
+        }
+
+        .product-item input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .product-item button {
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .product-item button:hover {
+            background: #555;
+        }
+
+        .cart table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .cart th, .cart td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart th {
+            background: #f4f4f4;
+        }
+
+        .cart p {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+</style>
+<body>
+
+    <main>
+        <section class="products">
+            <div class="container">
+                <h2>Nuestros Productos</h2>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="images/product1.jpg" alt="Producto 1"> 
+                        <h3>Producto 1</h3>
+                        <p>$10.00</p>
+                        <form>
+                            <input type="number" name="quantity" value="1" min="1">
+                            <button type="button" onclick="addToCart('Producto 1', 10, 1)">Agregar al Carrito</button>
+                        </form>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/product2.jpg" alt="Producto 2">
+                        <h3>Producto 2</h3>
+                        <p>$20.00</p>
+                        <form>
+                            <input type="number" name="quantity" value="1" min="1">
+                            <button type="button" onclick="addToCart('Producto 2', 20, 1)">Agregar al Carrito</button>
+                        </form>
+                    </div>
+                    <!-- Agrega más productos aquí -->
+                </div>
+            </div>
+        </section>
+        <section class="cart" id="cart">
+            <div class="container">
+                <h2>Carrito de Compras</h2>
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los elementos del carrito se agregarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+                <p id="total-price"><strong>Total a pagar: $0.00</strong></p>
+            </div>
+        </section>
+    </main>
+    
+
+
+{% endblock %}
