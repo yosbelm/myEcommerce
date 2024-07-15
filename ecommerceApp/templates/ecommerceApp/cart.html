@@ -1,4 +1,5 @@
 {% extends 'ecommerceApp/base.html' %}
+{% load static %}
 
 {% block content %}
 <style>
@@ -117,27 +118,20 @@
     <main>
         <section class="products">
             <div class="container">
-                <h2>Nuestros Productos</h2>
+                <h2>Selected Products</h2>
                 <div class="product-grid">
+                    {% for i in items %}
                     <div class="product-item">
-                        <img src="images/product1.jpg" alt="Producto 1"> 
-                        <h3>Producto 1</h3>
-                        <p>$10.00</p>
+                        <img src="{{i.image_url}}" alt="Producto 1"> 
+                        <h3>{{i.name}}</h3>
+                        <p>${{i.price}}</p>
                         <form>
                             <input type="number" name="quantity" value="1" min="1">
-                            <button type="button" onclick="addToCart('Producto 1', 10, 1)">Agregar al Carrito</button>
+                            <button type="button" onclick="addToCart('Producto 1', 10, 1)">Delete from Cart</button>
                         </form>
                     </div>
-                    <div class="product-item">
-                        <img src="images/product2.jpg" alt="Producto 2">
-                        <h3>Producto 2</h3>
-                        <p>$20.00</p>
-                        <form>
-                            <input type="number" name="quantity" value="1" min="1">
-                            <button type="button" onclick="addToCart('Producto 2', 20, 1)">Agregar al Carrito</button>
-                        </form>
-                    </div>
-                    <!-- Agrega más productos aquí -->
+                    {% endfor %}
+                     
                 </div>
             </div>
         </section>

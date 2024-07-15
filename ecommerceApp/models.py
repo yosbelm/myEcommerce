@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=50)
+    email = models.EmailField(blank=True, null=True)
+    password = models.CharField(max_length=50, blank=True, null=True)
     
     def __str__(self):
         return self.name
@@ -31,10 +33,13 @@ class Order(models.Model):
     transaction_id = models.CharField(max_length=50, null=True)
     
     def __str__(self):
-        return self.id
+        return str(self.id)
     
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     quentity = models.IntegerField(default=0, null=True, blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return str(self.product)
