@@ -16,6 +16,13 @@ class Product(models.Model):
     
     def __str__(self):
         return self.name
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
     
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
@@ -25,3 +32,9 @@ class Order(models.Model):
     
     def __str__(self):
         return self.id
+    
+class OrderItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
+    quentity = models.IntegerField(default=0, null=True, blank=True)
+    date_ordered = models.DateTimeField(auto_now_add=True)

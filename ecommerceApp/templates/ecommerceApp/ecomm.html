@@ -89,12 +89,12 @@
         </div>
     </section>
     <section class="products">
-        <div class="container">
+        <div class="container"> 
             <h2>Nuestros Productos</h2>
             <div class="product-grid">
                 {% for product in productos %}
                 <div class="product-item">
-                    <img src="{{product.image.url}}" alt="Producto 1">
+                    <img src="{{product.imageURL}}" alt="Producto 1">
                     <h3>{{product.name}}</h3>
                     <p>${{product.price}}</p>
                     <form>
