@@ -9,6 +9,7 @@ urlpatterns = [
     path('cart', views.cart, name='cart'),
     path('signin', views.signin, name='signin'),
     path('signup', views.create_user, name='signup'),
+    path('dlete_item/<int:id>', views.delete_item, name='dlete_item'),
 ]
 
 if settings.DEBUG:

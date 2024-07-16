@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 
 # Create your views here.
@@ -31,6 +31,7 @@ def cart(request):
             'price': product.price,
             'image_url': product.imageURL,
             'quantity': item.quentity,
+            'idd': item.id
         })
     
     total = 0
@@ -62,3 +63,12 @@ def cart(request):
         'compras_list': compras_list,
     }
     return render(request, 'ecommerceApp/cart.html', context)
+
+def delete_item(request, id):
+    item = OrderItem.objects.get(id=id)
+    print('****************************')
+    print(item.id)
+    item.delete()
+    return redirect('cart') 
+    
+    
