@@ -18,10 +18,8 @@ def create_user(request):
 def cart(request):
     customer = request.user.customer
     try:
-        # Intentar obtener la orden del cliente que no esté completada
         order = Order.objects.get(customer=customer, completed=False)
     except Order.DoesNotExist:
-        # Si no existe dicha orden, creamos una nueva
         order = Order.objects.create(customer=customer, completed=False)
     
     items = OrderItem.objects.filter(order=order)
@@ -35,10 +33,32 @@ def cart(request):
             'quantity': item.quentity,
         })
     
+    total = 0
+    for i in items_data:
+        cantidad = i['quantity']
+        tot = int(i['price'])
+        total += cantidad*tot
     
+      
+    compras_list =[] 
+    for elemento in items_data:
+        nombre = elemento['name']
+        precio = elemento['price']
+        cantidad = elemento['quantity']
+        tot = int(precio) * int(cantidad)
+        compras_list.append({
+            'nombre': nombre,
+            'precio': precio,
+            'cantidad': cantidad,
+            'tot': tot
+        })    
+    print('----------------------------------')
+    print(compras_list)
+    print('----------------------------------')
     context = {
         'order': order,
         'items': items_data,
+        'total': total,
+        'compras_list': compras_list,
     }
-    
     return render(request, 'ecommerceApp/cart.html', context)

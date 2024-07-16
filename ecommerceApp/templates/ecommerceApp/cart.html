@@ -148,10 +148,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Los elementos del carrito se agregarán aquí dinámicamente -->
+                        
+                        {% for compra in compras_list %}
+                        <tr>
+                            <td>{{compra.nombre}}</td>
+                            <td>${{compra.precio}}</td>
+                            <td>{{compra.cantidad}}</td>
+                            <td>${{compra.tot}}</td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
-                <p id="total-price"><strong>Total a pagar: $0.00</strong></p>
+                <p id="total-price"><strong>Total a pagar: ${{total}}</strong></p>
             </div>
         </section>
     </main>
