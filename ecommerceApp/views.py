@@ -145,4 +145,6 @@ def updateItem(request):
     except:
         return JsonResponse('Hi there', safe=False)
     
-    
+
+def checkout(request):
+    return render(request, 'ecommerceApp/checkout.html')  

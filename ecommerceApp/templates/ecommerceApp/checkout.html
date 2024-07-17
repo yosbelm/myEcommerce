@@ -1,0 +1,107 @@
+{% extends 'ecommerceApp/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    }
+
+    .main {
+        padding: 20px 0;
+    }
+
+    .checkout-section {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+    }
+
+    .checkout-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .checkout-form {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #333;
+    }
+    
+
+</style>
+<body>
+    
+        <section class="checkout-section">
+            <div class="container">
+                <h2>Checkout</h2>
+                <form class="checkout-form">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Dirección</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Ciudad</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">Estado</label>
+                        <input type="text" id="state" name="state" required>
+                    </div>
+                    <button type="submit">Realizar Pedido</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+</body>
+
+
+
+{% endblock %}

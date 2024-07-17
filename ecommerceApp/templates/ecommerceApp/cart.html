@@ -125,6 +125,30 @@
             font-size: 18px;
             font-weight: bold;
         }
+        .buy-button-div{
+            display: flex;
+            justify-content: center;
+        }
+        .buy-button{
+            background-color: #0f0f0f;
+            color: #fff ;
+            border: none;
+            border-radius: 5px;
+            width: 126px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+        }
+        .buy-button:hover{
+            cursor: pointer;
+            background-color: #474646;
+            border: 1px solid #adbed1;
+            transform: scale(1.05);
+            transform: translateY(2px);
+        }
+
 
 </style>
 <script type="text/javascript">
@@ -201,9 +225,14 @@
                         {% endfor %}
                     </tbody>
                 </table>
-                <p id="total-price"><strong>Total a pagar: ${{total}}</strong></p>
+                <p id="total-price"><strong>Total: ${{total}}</strong></p>
             </div>
         </section>
+        <a class="buy-button-div" href="{% url 'checkout' %}">
+            
+                <button class="buy-button">Buy</button>
+            
+        </a>
     </main>
  <script type="text/javascript" src="{% static 'ecommerceApp/JS/ecomme_add.js' %}">
 
