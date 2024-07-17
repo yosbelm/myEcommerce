@@ -3,7 +3,7 @@
 
 {% block content %}
 <style>
-    .hero {
+        .hero {
             background: #f5f5f5;
             padding: 60px 0;
             text-align: center;
@@ -36,7 +36,6 @@
             text-align: center;
             border: 1px solid #e6e6e6;
             border-radius: 10px;
-            transition: transform 0.3s ease;
             flex: 1 1 calc(33.333% - 20px);
             box-sizing: border-box;
             transition: transform 0.3s ease;
@@ -81,6 +80,29 @@
         }
         
 </style>
+
+<script type="text/javascript">
+    var usuario = '{{ usuario }}';
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var csrftoken = getCookie('csrftoken');
+</script>
+
 <main>
     <section class="hero">
         <div class="container">
@@ -99,7 +121,7 @@
                     <p>${{product.price}}</p>
                     <form>
                         <button type="button" onclick="">Details</button>
-                        <button type="button" onclick="addToCart('Producto 2', 20, 1)">Add to Cart</button>
+                        <button class="update-cart" data-product="{{product.id}}" data-action="add" type="button" onclick="">Add to Cart</button>
                     </form>
                 </div>
                 {% endfor %}
@@ -119,5 +141,7 @@
         </div>
     </section>
 </main>
+<script src="{% static 'ecommerceApp/JS/ecomme_add.js' %}">
 
+</script>
 {% endblock %}
