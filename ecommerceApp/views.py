@@ -79,7 +79,7 @@ def cart(request):
     total = 0
     for i in items_data:
         cantidad = i['quantity']
-        tot = int(i['price'])
+        tot = float(i['price'])
         total += cantidad*tot
     
     compras_list =[] 
@@ -87,7 +87,7 @@ def cart(request):
         nombre = elemento['name']
         precio = elemento['price']
         cantidad = elemento['quantity']
-        tot = int(precio) * int(cantidad)
+        tot = float(precio) * float(cantidad)
         compras_list.append({
             'nombre': nombre,
             'precio': precio,

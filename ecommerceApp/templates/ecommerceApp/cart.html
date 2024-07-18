@@ -228,12 +228,12 @@
                             <td>{{compra.nombre}}</td>
                             <td>${{compra.precio}}</td>
                             <td>{{compra.cantidad}}</td>
-                            <td>${{compra.tot}}</td>
+                            <td>${{compra.tot|floatformat:2}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-                <p class="total-price" id="total-price"><strong>Total: ${{total}}</strong></p>
+                <p class="total-price" id="total-price"><strong>Total: ${{total|floatformat:2}}</strong></p>
             </div>
         </section>
         <a class="buy-button-div" href="{% url 'checkout' %}">
