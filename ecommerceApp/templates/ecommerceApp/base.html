@@ -26,21 +26,22 @@
             margin: 0 auto;
         }
 
-        .header {
+        .nav {
             background: #fff;
             padding: 20px 0;
             border-bottom: 1px solid #e6e6e6;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .nav ul {
-            list-style: none;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            font-style: normal;
             display: flex;
-            justify-content: space-around;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 100%;
+            position: fixed;
+            padding-bottom: 15px;
+            gap: 20px;
+            z-index: 2;
+            top: 0;
         }
 
         .nav a {
@@ -64,6 +65,8 @@
             position: absolute;           
         }    
         .footer {
+            display: flex;
+            justify-content: center;
             background: #333;
             color: #fff;
             text-align: center;
@@ -75,29 +78,27 @@
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <h1 class="logo">Tienda Ecommerce</h1>
             <nav class="nav">
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="/">Productos</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a href="{% url 'cart' %}">
-                        <div>
-                            <p>{{cantidad_items}}</p>
-                        <img src="{%  static 'ecommerceApp/Images/carrito-de-compras.png' %}">
-                        </div>
-                    </a></li>
-                </ul>
+                
+                    <div><a href="/home">Home</a></div>
+                    <div><a href="/">Productos</a></div>
+                    <div><a href="#">Nosotros</a></div>
+                    <div><a href="#">Contacto</a></div>
+                    <div><a href="{% url 'cart' %}">
+                            <div>
+                                <p>{{cantidad_items}}</p>
+                                <img src="{%  static 'ecommerceApp/Images/carrito-de-compras.png' %}">
+                            </div>
+                        </a>
+                    </div>
+                
             </nav>
-        </div>
     </header>
     {% block content %}
     {% endblock %}
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Tienda Minimalista. Todos los derechos reservados.</p>
+            <p>&copy; 2024 Candonga. All rights reserved.</p>
         </div>
     </footer>
 </body>

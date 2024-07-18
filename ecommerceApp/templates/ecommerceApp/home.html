@@ -1,0 +1,165 @@
+{% extends 'ecommerceApp/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    }
+
+    .header {
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        padding: 20px 0;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .container h2{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 30px;
+        padding-top: 10px;
+    }
+
+    .logo a {
+        text-decoration: none;
+        color: #000;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+    }
+
+    .nav ul li {
+        display: inline;
+        margin-left: 20px;
+    }
+
+    .nav ul li a {
+        text-decoration: none;
+        color: #000;
+        font-size: 18px;
+    }
+
+    .hero {
+        background-color: #fff;
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #555;
+    }
+
+    .hero .btn {
+        padding: 10px 20px;
+        background-color: #e67e22;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+    .category-item img{
+        width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+    }
+
+    .category-item h3, .promotion-item h3 {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .promotion-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-around;
+            gap: 20px;
+    }
+
+    .promotion-item{
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e6e6e6;
+            border-radius: 10px;
+            flex: 1 1 calc(33.333% - 20px);
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+    }
+    
+
+
+
+</style>
+<script type="text/javascript">
+    var usuario = '{{ usuario }}';
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var csrftoken = getCookie('csrftoken');
+</script>
+<body>
+    <main>
+        <section class="hero">
+            <div class="container-hero">
+                <h2>Welcome to Candonga</h2>
+                <p>Descubre nuestros productos exclusivos</p>
+                <a href="{% url 'products' %}" class="btn">Ver Productos</a>
+            </div>
+        </section>
+        
+        <section class="promotions">
+            <div class="container">
+                <h2>Special Promotions</h2>
+                <div class="promotion-grid">
+                    {% for product in cheap_productos %}
+                    <div class="promotion-item">
+                        <img src="{{product.imageURL}}" alt="Promoción 1">
+                        <h3>Less than a $100</h3>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+
+{% endblock %}

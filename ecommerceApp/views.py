@@ -8,15 +8,15 @@ import json
 def productItem(request):
     productos = Product.objects.all()
     user_name = request.user
-    usuario = request.user.id
     
+    usuario = request.user.id
     order = Order.objects.get(customer=usuario)
     prod = OrderItem.objects.filter(order=order)
     items_data = []
     cantidad_items = 0
     for item in prod:
         items_data.append({
-            'quantity': item.quentity,
+            'quantity': item.quentity, 
         })
         
     for i in items_data:
@@ -35,6 +35,7 @@ def productItem(request):
     return render(request, 'ecommerceApp/ecomm.html', context)
 
 
+
 def cantid(request):
     cantidad = OrderItem.objects.all()
     print(cantidad)
@@ -43,11 +44,16 @@ def cantid(request):
     return render(request, 'ecommerceApp/base.html', context)
 
 
+
 def signin(request):
     return render(request, 'ecommerceApp/signin.html')
 
+
+
 def create_user(request):
     return render(request, 'ecommerceApp/signup.html')
+
+
 
 def cart(request):
     usuario = request.user.id
@@ -76,7 +82,6 @@ def cart(request):
         tot = int(i['price'])
         total += cantidad*tot
     
-      
     compras_list =[] 
     for elemento in items_data:
         nombre = elemento['name']
@@ -110,12 +115,16 @@ def cart(request):
     }
     return render(request, 'ecommerceApp/cart.html', context)
 
+
+
 def delete_item(request, id):
     item = OrderItem.objects.get(id=id)
     print('****************************')
     print(item.id)
     item.delete()
     return redirect('cart') 
+
+
 
 def updateItem(request):
     try:
@@ -146,5 +155,96 @@ def updateItem(request):
         return JsonResponse('Hi there', safe=False)
     
 
+
 def checkout(request):
-    return render(request, 'ecommerceApp/checkout.html')  
+    # code to show the total of items in the cart
+    usuario = request.user.id
+    order = Order.objects.get(customer=usuario)
+    prod = OrderItem.objects.filter(order=order)
+    items_data = []
+    cantidad_items = 0
+    for item in prod:
+        items_data.append({
+            'quantity': item.quentity, 
+        })
+        
+    for i in items_data:
+        cantidad = i['quantity']
+        cantidad_items += cantidad
+    # code to show the total of items in the cart
+    
+    context= {
+        'cantidad_items': cantidad_items
+    }
+    return render(request, 'ecommerceApp/checkout.html', context)
+
+
+
+def details(request, id):
+    producto = Product.objects.get(id=id)
+    image = producto.imageURL
+    precio = producto.price
+    name = producto.name
+    description = producto.description
+    print('-------------------------')
+    print(image)
+    
+    # code to show the total of items in the cart
+    usuario = request.user.id
+    order = Order.objects.get(customer=usuario)
+    prod = OrderItem.objects.filter(order=order)
+    items_data = []
+    cantidad_items = 0
+    for item in prod:
+        items_data.append({
+            'quantity': item.quentity, 
+        })
+        
+    for i in items_data:
+        cantidad = i['quantity']
+        cantidad_items += cantidad
+    # code to show the total of items in the cart
+    
+    context={'producto':producto, 
+             'precio': precio,
+             'name': name,
+             'image': image,
+             'description':description,
+             'cantidad_items': cantidad_items,
+             }
+    return render(request, 'ecommerceApp/details.html', context) 
+
+
+
+def home(request):
+    productos = Product.objects.all()
+    
+    # code to show the total of items in the cart
+    usuario = request.user.id
+    order = Order.objects.get(customer=usuario)
+    prod = OrderItem.objects.filter(order=order)
+    items_data = []
+    cantidad_items = 0
+    for item in prod:
+        items_data.append({
+            'quantity': item.quentity, 
+        })
+        
+    for i in items_data:
+        cantidad = i['quantity']
+        cantidad_items += cantidad
+    # code to show the total of items in the cart
+    
+    cheap_productos=[]
+    for product in productos:
+        if product.price < 100:
+            cheap_productos.append(product)
+    print('iiiiiiiiiiiiiiiiiiiiiiiiiiiii')  
+    print(cheap_productos)  
+    context={
+        'usuario': usuario,
+        'cantidad_items': cantidad_items,
+        'productos':productos,
+        'cheap_productos': cheap_productos,
+    }
+    return render(request, 'ecommerceApp/home.html', context) 

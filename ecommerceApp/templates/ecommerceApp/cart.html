@@ -10,6 +10,10 @@
             color: #333;
         }
 
+        .products{
+            margin-top: 65px;    
+        }
+
         .products, .cart {
             padding: 40px 0;
         }
@@ -128,6 +132,7 @@
         .buy-button-div{
             display: flex;
             justify-content: center;
+            text-decoration: none;
         }
         .buy-button{
             background-color: #0f0f0f;
@@ -149,6 +154,9 @@
             transform: translateY(2px);
         }
 
+        .total-price strong{
+            margin-right:3em;
+        }
 
 </style>
 <script type="text/javascript">
@@ -225,7 +233,7 @@
                         {% endfor %}
                     </tbody>
                 </table>
-                <p id="total-price"><strong>Total: ${{total}}</strong></p>
+                <p class="total-price" id="total-price"><strong>Total: ${{total}}</strong></p>
             </div>
         </section>
         <a class="buy-button-div" href="{% url 'checkout' %}">
