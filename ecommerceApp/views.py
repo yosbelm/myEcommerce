@@ -49,8 +49,7 @@ def cantid(request):
 
 def signin(request):
     if request.method == 'GET':
-        print('get')
-        
+        print('utliza metodo get')
     else:
         user = authenticate(request, username=request.POST['name'], password=request.POST['password'])
         if user is None:
