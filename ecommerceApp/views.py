@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.http import JsonResponse
 import json
+from django.contrib.auth import login, authenticate, logout
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -46,13 +48,46 @@ def cantid(request):
 
 
 def signin(request):
-    return render(request, 'ecommerceApp/signin.html')
+    if request.method == 'GET':
+        print('get')
+        
+    else:
+        user = authenticate(request, username=request.POST['name'], password=request.POST['password'])
+        if user is None:
+            return render(request, 'ecommerceApp/signin.html', {'error': 'Username or password is incorrect'})
+        else:
+            login(request, user)
+            return redirect('home')
 
+    return render(request, 'ecommerceApp/signin.html')
+        
 
 
 def create_user(request):
-    return render(request, 'ecommerceApp/signup.html')
+    if request.method == 'GET':
+        print('metodo get')
+        return render(request, 'ecommerceApp/signup.html')
+    else:
+        if request.POST['password1'] == request.POST['password2']:
+            try:
+                print(request.POST)
+                user = User.objects.create_user(username=request.POST['name'], password=request.POST['password1'])
+                print(user)
+                user.save()
+                login(request, user)
+                return redirect('home')
+            except:
+                error_user = 'User already exists'
+                return render(request, 'ecommerceApp/signup.html', {'error_user':error_user})
+        else:
+            error = 'The passwords do not match'
+            return render(request, 'ecommerceApp/signup.html', {'error':error})
+        
 
+
+def signout(request):
+    logout(request)
+    return redirect('signin')
 
 
 def cart(request):

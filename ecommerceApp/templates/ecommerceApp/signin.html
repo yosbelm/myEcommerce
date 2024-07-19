@@ -7,6 +7,12 @@
     <title>Sign In - Web Store</title>
     <link rel="stylesheet" href="{% static 'ecommerceApp/CSS/signin.css' %}">
 </head>
+<style>
+    .error {
+        color: red;
+        padding-top: 15px;
+    }
+</style>
 <body>
     <header class="header">
         <div class="container">
@@ -17,15 +23,18 @@
         <section class="auth-section">
             <div class="container">
                 <h2>Iniciar Sesión</h2>
-                <form class="auth-form">
-                    <label for="email">User</label>
-                    <input type="email" id="email" name="email" required>
+                <form class="auth-form" method="POST">
+                    {% csrf_token %}
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
                     
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                     
                     <button type="submit">Iniciar Sesión</button>
                     
+                    <div class="error">{{error}}</div>
+
                     <p>¿No tienes una cuenta? <a href="{% url 'signup' %}">Regístrate aquí</a></p>
                 </form>
             </div>
