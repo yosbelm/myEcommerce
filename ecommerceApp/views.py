@@ -122,7 +122,7 @@ def delete_item(request, id):
     print('****************************')
     print(item.id)
     item.delete()
-    return redirect('cart') 
+    return redirect('carr') 
 
 
 
