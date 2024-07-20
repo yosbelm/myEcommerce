@@ -11,7 +11,7 @@ def productItem(request):
     productos = Product.objects.all()
     user_name = request.user
     
-    usuario = request.user.id
+    usuario = request.user.customer
     order = Order.objects.get(customer=usuario)
     prod = OrderItem.objects.filter(order=order)
     items_data = []
@@ -224,7 +224,7 @@ def details(request, id):
     print(image)
     
     # code to show the total of items in the cart
-    usuario = request.user.id
+    usuario = request.user.customer
     order = Order.objects.get(customer=usuario)
     prod = OrderItem.objects.filter(order=order)
     items_data = []
@@ -254,7 +254,8 @@ def home(request):
     productos = Product.objects.all()
     
     # code to show the total of items in the cart
-    usuario = request.user.id
+    usuario = request.user.customer
+    print(usuario)
     order = Order.objects.get(customer=usuario)
     prod = OrderItem.objects.filter(order=order)
     items_data = []
