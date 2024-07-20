@@ -192,7 +192,7 @@ def updateItem(request):
 
 def checkout(request):
     # code to show the total of items in the cart
-    usuario = request.user.id
+    usuario = request.user.customer
     order = Order.objects.get(customer=usuario)
     prod = OrderItem.objects.filter(order=order)
     items_data = []
