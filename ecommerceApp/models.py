@@ -7,10 +7,19 @@ class Customer(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(blank=True, null=True)
     password = models.CharField(max_length=50, blank=True, null=True)
+    imagen = models.ImageField(blank=True)
     
     def __str__(self):
         return self.name
     
+    @property
+    def imageURL(self):
+        try:
+            url = self.imagen.url
+        except:
+            url = ''
+        return url
+        
 class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.FloatField()

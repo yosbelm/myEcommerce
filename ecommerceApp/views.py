@@ -283,3 +283,27 @@ def home(request):
         'cheap_productos': cheap_productos,
     }
     return render(request, 'ecommerceApp/home.html', context) 
+
+
+def contact(request):
+    usuario = request.user.customer
+    
+    # code to show the total of items in the cart
+    print(usuario)
+    order = Order.objects.get(customer=usuario)
+    prod = OrderItem.objects.filter(order=order)
+    items_data = []
+    cantidad_items = 0
+    for item in prod:
+        items_data.append({
+            'quantity': item.quentity, 
+        })
+        
+    for i in items_data:
+        cantidad = i['quantity']
+        cantidad_items += cantidad
+    # code to show the total of items in the cart
+    
+    print(usuario.imageURL)
+    context={'usuario':usuario, 'cantidad_items': cantidad_items}
+    return render(request, 'ecommerceApp/contact.html', context)

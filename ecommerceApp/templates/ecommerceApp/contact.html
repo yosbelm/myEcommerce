@@ -1,0 +1,168 @@
+{% extends 'ecommerceApp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+main {
+    flex: 1;
+    padding-top: 80px;
+}
+
+.contact-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.profile {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 35px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.profile a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.profile a:hover {
+    text-decoration: underline;
+}
+
+.profile p:last-child {
+    margin-bottom: 0;
+}
+
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button[type="submit"]:hover {
+    background-color: #333;
+}
+
+
+
+</style>
+    
+
+<body>   
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <h2>Contacto</h2>
+                <div class="profile">
+                    <img src="{{usuario.imageURL}}" alt="Tu Foto de Perfil">
+                    <h3>Yosbel</h3>
+                    <p>Desarrollador Web</p>
+                    <p>Github: <a href="https://github.com/yosbelm" target="_blank">github.com/yosbelm</a></p>
+                    <p>Página Web: <a href="https://yosbel.pages.dev" target="_blank">yosbel.pages.dev</a></p>
+                    <p>Se brinda servicio de creación de páginas web a negocios y particulares.</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíame un Mensaje</h3>
+                    <form action="https://formspree.io/f/xoqggrow" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+    
+
+{% endblock %}

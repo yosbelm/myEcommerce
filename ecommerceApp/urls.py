@@ -15,7 +15,7 @@ urlpatterns = [
     path('details/<int:id>/', views.details, name='details'),
     path('home', views.home, name='home'),
     path('logout', views.signout, name='logout'),
-    
+    path('contact', views.contact, name='contact'),
 ]
 
 if settings.DEBUG:
