@@ -5,9 +5,9 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', views.productItem, name='products'),
+    path('prod', views.productItem, name='products'),
     path('carr', views.cart, name='carr'),
-    path('signin/', views.signin, name='signin'),
+    path('', views.signin, name='signin'),
     path('signup/', views.create_user, name='signup'),
     path('dlete_item/<int:id>', views.delete_item, name='dlete_item'),
     path('updateitem', views.updateItem, name='updateitem'),
