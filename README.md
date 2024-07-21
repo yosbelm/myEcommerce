@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw;">
+<div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
   <img src="https://yosbel.pages.dev/assets/myEcommerce-BUxOKSiA.png" alt="Screenshot 1.png" style="width: 45%; margin: 0 10px;">
 </div>
 
