@@ -123,6 +123,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 
 ## References
-[Django Documentation]('https://docs.djangoproject.com/en/5.0/')
+[Django Documentation]
 Django Admin Interface
 Django Models
