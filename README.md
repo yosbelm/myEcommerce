@@ -123,6 +123,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 
 ## References
-[Django Documentation](https://docs.djangoproject.com/en/5.0/) br
-[Django Admin Interface](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/) br
-[Django Models](https://docs.djangoproject.com/en/5.0/topics/db/models/)
+[Django Documentation](https://docs.djangoproject.com/en/5.0/).
+[Django Admin Interface](https://docs.djangoproject.com/en/5.0/ref/contrib/admin/) .
+[Django Models](https://docs.djangoproject.com/en/5.0/topics/db/models/).
