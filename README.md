@@ -120,3 +120,9 @@ Create a new Pull Request.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+## References
+[Django Documentation](https://docs.djangoproject.com/en/5.0/)
+Django Admin Interface
+Django Models
