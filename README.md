@@ -9,8 +9,6 @@
 **You can access the project website at [candonga.pythonanywhere.com](http://candonga.pythonanywhere.com) using the username and password 'candonga'.**
 
 
-**You can access the project website at [candonga.pythonanywhere.com](http://candonga.pythonanywhere.com) using the username and password 'candonga'.**
-
 
 ## Project Overview
 
