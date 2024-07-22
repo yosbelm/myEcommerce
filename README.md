@@ -120,22 +120,24 @@ myEcommerce/
 
 
 ## Contributing
+
 ### We welcome contributions! Please follow these steps:
 
-Fork the repository.  
-Create a new branch:
-```sh
-git checkout -b feature-branch
-```
-Commit your changes:  
-```sh
-git commit -am 'Add new feature'
-```
-Push to the branch.  
-```sh
-git push origin feature-branch
-```
-Create a new Pull Request.
+1. Fork the repository.
+2. Create a new branch:
+    ```sh
+    git checkout -b feature-branch
+    ```
+3. Commit your changes:
+    ```sh
+    git commit -am 'Add new feature'
+    ```
+4. Push to the branch:
+    ```sh
+    git push origin feature-branch
+    ```
+5. Create a new Pull Request.  
+
 
 
 ## References
