@@ -5,6 +5,9 @@
 
  # myEcommerce
 
+**You can access the project website at [candonga.pythonanywhere.com](http://candonga.pythonanywhere.com) using the username and password 'candonga'.**
+
+
 ## Project Overview
 
 **myEcommerce** is a Django-based eCommerce application designed to provide a seamless online shopping experience. The project is structured to demonstrate Django's capabilities in managing an eCommerce platform, including product listing, user authentication, and cart management.
