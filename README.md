@@ -12,7 +12,7 @@
 
 ## Project Overview
 
-**myEcommerce** is a Django-based eCommerce application designed to provide a seamless online shopping experience. The project is structured to demonstrate Django's capabilities in managing an eCommerce platform, including product listing, user authentication, and cart management.
+**myEcommerce** is a Django-based eCommerce application designed to provide a seamless online shopping experience. The project is structured to demonstrate Django's capabilities in managing an eCommerce platform, including product listing, user authentication, and cart management. Additionally, it includes a chatbot feature that answers questions about the site's content, specifically for the keyboard sales manager.
 
 ## Table of Contents
 
@@ -89,6 +89,7 @@ Products can be added via the admin panel. Navigate to the `Products` section an
 - Product listing
 - Shopping cart
 - Order management
+- Chatbot for answering questions about the site's content, specifically for the keyboard sales manager
 
 ## Project Structure
 
