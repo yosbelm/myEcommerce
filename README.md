@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw; margin: auto;">
-  <img src="https://yosbel.pages.dev/assets/myEcommerce-BUxOKSiA.png" alt="Ecommerce pic" style="width: 100%; margin: auto;">
+  <img src="https://yosbel.pages.dev/assets/myEcommerce-Dq86zShs.jpg" alt="Ecommerce pic" style="width: 100%; margin: auto;">
 </div>
 
 
